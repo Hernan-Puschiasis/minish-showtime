@@ -14,6 +14,11 @@
 #define HELP_STATUS  "status - muestra status de retorno de ultimo comando ejecutado"
 #define HELP_UID     "uid - muestra nombre y número de usuario dueño del minish"
 
+#define RESET   "\x1B[0m"
+#define RED     "\x1B[31m"
+#define BLUE    "\x1B[34m"
+#define CYAN    "\x1B[36m"
+
 // Definición de Estructuras
 
 struct builtin_struct {         // struct con información de los builtins
