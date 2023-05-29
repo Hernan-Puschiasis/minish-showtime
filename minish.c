@@ -3,6 +3,8 @@
 #include "minish.h"
 
 char line[MAXLINE];
+
+int globalstatret = 0;
 struct builtin_struct builtin_arr[] = {
         { "cd", builtin_help, HELP_CD },
         { "dir", builtin_help, HELP_DIR },
@@ -24,8 +26,7 @@ int main(){
     fprintf(stderr, "$ ");
     while(fgets(line, MAXLINE, stdin) != NULL){ 
         argc = linea2argv(line, MAXWORDS, argv);
-        builtin_uid(argc,argv); //Prueba a mano cada comando, en este cado uid
-
+        
         //Se libera el contenido de argv
         for(int i = 0; i < argc; i++){
             free(argv[i]);
