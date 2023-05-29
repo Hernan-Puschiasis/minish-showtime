@@ -5,7 +5,10 @@ CFLAGS=-Wall -Wextra -std=gnu99 -ggdb
 # La variable LDLIBS indica las banderas para la parte del "loader", usualmente librerías "-lxxxx"
 LDLIBS=-lubsan
 
-minish: minish.o wrappers.o linea2argv.o
+minish: minish.o wrappers.o linea2argv.o help.o pid.o uid.o
 minish.o: wrappers.h minish.h
 linea2argv.o: wrappers.h minish.h
+help.o: wrappers.h minish.h
+pid.o: wrappers.h minish.h
+uid.o: wrappers.h minish.h
 wrappers.o: wrappers.h
