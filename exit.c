@@ -18,7 +18,7 @@ int builtin_exit(int argc, char **argv){
         exit(1);
     }
     if(argc == 1){
-        exit(globalstatret);
+        exit(globalstatret); //NO anda el exitttttt
     }
     
     char *error;
