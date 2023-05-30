@@ -33,7 +33,11 @@ int main(){
     while(fgets(line, MAXLINE, stdin) != NULL){ 
         argc = linea2argv(line, MAXWORDS, argv);
         
-        globalstatret = ejecutar(argc,argv);
+        if(argc > 0){
+            globalstatret = ejecutar(argc,argv);
+        }
+        
+        
         //Se libera el contenido de argv
         for(int i = 0; i < argc; i++){
             free(argv[i]);
