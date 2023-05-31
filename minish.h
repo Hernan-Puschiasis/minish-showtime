@@ -14,6 +14,7 @@
 #define HELP_STATUS    "status - muestra status de retorno de ultimo comando ejecutado"
 #define HELP_UID       "uid - muestra nombre y número de usuario dueño del minish"
 #define HELP_UNSETENV  "unsetenv var [var…] - elimina variables de ambiente."
+#define HELP_GID       "gid - muestra grupo principal y secundario"
 
 #define RESET   "\x1B[0m"
 #define RED     "\x1B[31m"

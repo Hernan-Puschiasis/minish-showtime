@@ -15,10 +15,11 @@ Retorna 1 en caso de ejecutarse con algun error.
 int builtin_exit(int argc, char **argv){
     
     if(argc > 2){
-        exit(1);
+        fprintf(stderr, "El comando requiere como maximo dos parametros\n");
+        return 1;
     }
     if(argc == 1){
-        exit(globalstatret); //NO anda el exitttttt
+        exit(globalstatret); 
     }
     
     char *error;

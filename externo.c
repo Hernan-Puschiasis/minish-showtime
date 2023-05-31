@@ -18,19 +18,10 @@ int externo (int argc, char ** argv){
     }
     if(child_pid == 0){
         int child_status = execvp(argv[0], argv);
-        if(child_status){
-            fprintf(stderr, "Error en la ejecucion del comando externo\n");
-            return 1;
-        }
-        return 0;
-        
+        fprintf(stderr, "Error en la ejecucion del comando externo\n");
+        exit(1);       
     }
 
     child_pid = wait(&status);
-    if(child_pid == -1){
-        fprintf(stderr, "Error en la ejecucion del comando externo\n");
-        return 1;
-    }
-
-    return WEXITSTATUS(status); //No esta andando esto bien
+    return WEXITSTATUS(status);
 }

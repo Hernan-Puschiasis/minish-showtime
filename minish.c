@@ -21,8 +21,9 @@ struct builtin_struct builtin_arr[] = {
         { "status", builtin_status, HELP_STATUS },
         { "uid", builtin_uid, HELP_UID },
         { "unsetenv", builtin_unsetenv, HELP_UNSETENV},
+        { "gid", builtin_gid, HELP_GID},
         { NULL, NULL, NULL }
-    }; ;
+    };
 
 int main(){
     char **argv = calloc_or_exit(MAXWORDS, MAXLINE);
