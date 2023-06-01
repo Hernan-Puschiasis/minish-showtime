@@ -5,6 +5,8 @@
 #include <pwd.h>
 #include <unistd.h>
 #include "minish.h"
+#include <signal.h>
+#include <string.h>
 
 char line[MAXLINE];
 
@@ -30,9 +32,25 @@ int main(){
     int argc;
     uid_t uid = getuid();
     struct passwd *p = getpwuid(uid);
-
-    fprintf(stderr,  "(minish) " RED"%s" RESET ":" CYAN "%s$ " RESET, p -> pw_name, getenv("PWD"));
-    while(fgets(line, MAXLINE, stdin) != NULL){ 
+    
+    struct sigaction str_sigint_action;
+    memset(&str_sigint_action, 0, sizeof(str_sigint_action)); // llena con 0's la struct
+    str_sigint_action.sa_handler = normalInterruptHandler;
+    
+    
+    while(1){
+        sigaction(SIGINT, &str_sigint_action, NULL); // ejecuta el sigaction, activa el manejador
+        
+        fprintf(stderr,  "(minish) " RED"%s" RESET ":" CYAN "%s" RESET "$ ", p -> pw_name, getenv("PWD")); 
+        clearerr(stdin);
+        if(fgets(line, MAXLINE, stdin) == NULL){
+            if(feof(stdin)){
+                break;
+            }
+            continue;
+        }
+        
+        
         argc = linea2argv(line, MAXWORDS, argv);
         
         if(argc > 0){
@@ -44,6 +62,5 @@ int main(){
         for(int i = 0; i < argc; i++){
             free(argv[i]);
         }
-        fprintf(stderr,  "(minish) " RED"%s" RESET ":" CYAN "%s$ " RESET, p -> pw_name, getenv("PWD"));
     }
 }

@@ -14,3 +14,9 @@ struct builtin_struct *take_command(char *command){
     }
     return command_return;
 }
+
+void normalInterruptHandler(int signum){
+    if(signum == SIGINT){
+        fprintf(stderr,"\n");
+    }
+}
