@@ -10,9 +10,10 @@
 
 char line[MAXLINE];
 
+char *last_path;
 int globalstatret = 0;
 struct builtin_struct builtin_arr[] = {
-        { "cd", builtin_help, HELP_CD },
+        { "cd", builtin_cd, HELP_CD },
         { "dir", builtin_help, HELP_DIR },
         { "exit", builtin_exit, HELP_EXIT },
         { "help", builtin_help, HELP_HELP },
@@ -28,6 +29,7 @@ struct builtin_struct builtin_arr[] = {
     };
 
 int main(){
+    last_path = getenv("PWD");
     char **argv = calloc_or_exit(MAXWORDS, MAXLINE);
     int argc;
     uid_t uid = getuid();

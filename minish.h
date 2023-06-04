@@ -34,6 +34,8 @@ struct builtin_struct {         // struct con información de los builtins
 
 extern int globalstatret;	// guarda status del ultimo comando
 
+extern char *last_path;
+
 extern struct builtin_struct builtin_arr[];
 
 /*
