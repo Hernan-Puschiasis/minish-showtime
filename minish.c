@@ -13,7 +13,7 @@ char line[MAXLINE];
 int globalstatret = 0;
 struct builtin_struct builtin_arr[] = {
         { "cd", builtin_help, HELP_CD },
-        { "dir", builtin_help, HELP_DIR },
+        { "dir", builtin_dir, HELP_DIR },
         { "exit", builtin_exit, HELP_EXIT },
         { "help", builtin_help, HELP_HELP },
         { "history", builtin_help, HELP_HISTORY },
