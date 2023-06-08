@@ -19,6 +19,7 @@ int builtin_exit(int argc, char **argv){
         return 1;
     }
     if(argc == 1){
+        update_history();
         exit(globalstatret); 
     }
     
@@ -29,6 +30,7 @@ int builtin_exit(int argc, char **argv){
         return 1;
     }
 
+    update_history();
     exit(status);
 
 }

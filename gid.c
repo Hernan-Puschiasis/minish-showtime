@@ -15,7 +15,7 @@ int builtin_gid (int argc, char ** argv){
         fprintf(stderr,"Error a la hora de ejecutar comando\n");
         return 1;
     }
-    gid_t groups_id[500];
+    gid_t groups_id[500]; //Cambiar esto a una Constante
     int groups_number = getgroups(500,groups_id);
     if(groups_number == -1){
         fprintf(stderr,"Error a la hora de ejecutar comando\n");

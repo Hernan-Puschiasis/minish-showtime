@@ -1,7 +1,7 @@
 #define MAXLINE 1024        // tamaño máximo de la línea de entrada
 #define MAXCWD 1024         // tamaño máximo para alojar el pathname completo del directorio corriente
 #define MAXWORDS 256        // cantidad máxima de palabras en la línea
-#define HISTORY_FILE	".minish_history"   // nombre del archivo que almacena historia de comandos
+#define HISTORY_FILE	"/.minish_history"   // nombre del archivo que almacena historia de comandos
 
 #define HELP_CD        "cd [..|dir] - cambia de directorio corriente"
 #define HELP_DIR       "dir [str]- muestra archivos en directorio corriente, que tengan 'str'"
@@ -34,7 +34,13 @@ struct builtin_struct {         // struct con información de los builtins
 
 extern int globalstatret;	// guarda status del ultimo comando
 
+extern char *history_file_path;
+
+extern char *last_path;
+
 extern struct builtin_struct builtin_arr[];
+
+extern struct list *history_list;
 
 /*
     builtin_arr es una lista de los builtins, que se recorrerá en forma lineal.

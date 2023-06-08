@@ -13,7 +13,7 @@ int linea2argv(char *linea, int argc, char **argv){
         return 0;
     }
     
-    char *current_word = malloc_or_exit(MAXLINE + 1);
+    char current_word[MAXLINE + 1];
     int word_count = 0;
     int letter_count = 0;
     int in_word = 1;
@@ -30,6 +30,7 @@ int linea2argv(char *linea, int argc, char **argv){
                 current_word[letter_count] = '\0';
                 letter_count = 0;
                 in_word = 0;
+                //free(argv[word_count]);
                 argv[word_count++] = strdup_or_exit(current_word);
             }
             else{
