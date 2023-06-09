@@ -23,5 +23,5 @@ unsetenv.o: wrappers.h minish.h
 gid.o: wrappers.h minish.h
 cd.o: wrappers.h minish.h
 lista.o: wrappers.h lista.h
-history.o: wrappers.h minish.h
+history.o: wrappers.h minish.h lista.h
 dir.o: wrappers.h minish.h
