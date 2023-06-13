@@ -15,6 +15,7 @@ int builtin_getenv(int argc, char ** argv){
         printf("%s\n", "Falta pedir las variables de entorno");
         return 1;
     }
+    //Imprime el nombre de la variable y su valor en caso de que exista, sino mensaje de error
     for(int i = 1; i < argc; i++){
         printf("%s=%s\n", argv[i], (getenv(argv[i]) != NULL)? getenv(argv[i]) : "No existe esta variable de entorno");
     }
