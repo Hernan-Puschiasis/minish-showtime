@@ -3,9 +3,10 @@
 #include "minish.h"
 #include "wrappers.h"
 
-//Funcion que para cada linea obtenida en el shell
-//devuelve la cantidad de palabras de la linea (argc)
-//y las guarda en argv
+/*
+Funcion que para cada linea obtenida en el shell devuelve la cantidad de palabras de la linea (argc)
+y las guarda en argv
+*/
 
 int linea2argv(char *linea, int argc, char **argv){
     
@@ -30,7 +31,6 @@ int linea2argv(char *linea, int argc, char **argv){
                 current_word[letter_count] = '\0';
                 letter_count = 0;
                 in_word = 0;
-                //free(argv[word_count]);
                 argv[word_count++] = strdup_or_exit(current_word);
             }
             else{

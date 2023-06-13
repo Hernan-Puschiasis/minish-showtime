@@ -4,6 +4,12 @@
 #include "wrappers.h"
 
 
+/*
+Admite hasta un parámetro que será el comando, imprime ayuda extensa sobre el comando. 
+Sin argumentos escribe un texto de ayuda indicando qué comandos internos existen.
+Devuelve el status de retorno
+*/
+
 int builtin_help (int argc, char ** argv){
     if(argc>2){
         fprintf(stderr,"Comando help solo admite un unico parametro\n\tEscribir help help para más ayuda\n");
