@@ -45,8 +45,7 @@ int main(){
 
     FILE *fp = fopen(history_file_path,"r");
     if(fp == NULL){
-        fprintf(stderr, "No abre el archivo del history, no se abrira el shell");
-        exit(1);
+        fp = fopen(history_file_path,"a+");
     }
 
     while(fgets(line, MAXLINE, fp) != NULL){
