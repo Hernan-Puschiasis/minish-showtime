@@ -12,17 +12,13 @@
 Muestra el grupo principal y los grupos secundarios del usuario
 Devuelve el status de la operación
 */
-
 int builtin_gid (int argc, char ** argv){
     if(argc > 1){
         fprintf(stderr,"Comando NO admite parametros\n");
         return 1;
     }
 
-    if(strcmp("gid",argv[0]) != 0){
-        fprintf(stderr,"Error a la hora de ejecutar comando\n");
-        return 1;
-    }
+    if(argv[0]){}
 
     gid_t groups_id[MAX_GROUPS];
     int groups_number = getgroups(MAX_GROUPS,groups_id);

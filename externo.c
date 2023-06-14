@@ -21,6 +21,8 @@ int externo (int argc, char ** argv){
     struct sigaction str_sigint_action_old;
     struct sigaction str_sigint_action;
     
+    if(argc){}
+    
     child_pid = fork();
     if(child_pid == -1){
         fprintf(stderr, "Error en la ejecucion del comando externo\n");

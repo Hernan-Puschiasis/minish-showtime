@@ -3,6 +3,7 @@
 #include "lista.h"
 #include "wrappers.h"
 
+//Crea una lista vacia y la retorna.
 struct list *list_create(void){
     struct list *new_list = (struct list *)malloc_or_exit(sizeof(struct list));
     new_list->count=0;
@@ -11,6 +12,7 @@ struct list *list_create(void){
     return new_list;
 }
 
+//Agrega elemento al final de la lista y lo retorna.
 struct list_elem *list_append(struct list *list, char *s){
     if(list == NULL || s == NULL){
         return NULL;
@@ -31,7 +33,11 @@ struct list_elem *list_append(struct list *list, char *s){
     return new_element;
 }
 
-//Funciona como lista en un solo sentido
+/*
+Funciona como lista en un solo sentido.
+Agrega en la lista de forma ordenada alfabeticamente segun el string del elemento.
+Retorna el elemento añadido.
+*/
 struct list_elem *list_append_alphabetically(struct list *list, char *s){
     if(list == NULL || s == NULL){
         return NULL;
@@ -66,6 +72,7 @@ struct list_elem *list_append_alphabetically(struct list *list, char *s){
     return new_element;
 }
 
+//Imprime la lista sin salto de linea entre elementos.
 void list_print(struct list *list){
     if(list != NULL && list->count>0){
         struct list_elem *iteration_element = list->leftmost;
@@ -76,6 +83,7 @@ void list_print(struct list *list){
     }
 }
 
+//Imprime la lista con salto de linea entre elementos.
 void list_print_with_space(struct list *list){
     if(list != NULL && list->count>0){
         struct list_elem *iteration_element = list->leftmost;
@@ -86,6 +94,7 @@ void list_print_with_space(struct list *list){
     }
 }
 
+//Remueve el primer elemento de la lista y lo retorna.
 struct list_elem *list_pop_left(struct list *list){
     if(list == NULL || list->count==0){
         return NULL;

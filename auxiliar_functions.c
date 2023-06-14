@@ -33,8 +33,10 @@ void update_history(){
     while( (elem = history_list -> leftmost) != NULL){
         elem = list_pop_left(history_list);
         fprintf(fp, "%s", elem -> str);
+        free(elem->str);
         free(elem);
     }
     fclose(fp); 
     free(history_list);
+    free(history_file_path);
 }  

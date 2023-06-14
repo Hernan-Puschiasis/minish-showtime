@@ -41,6 +41,10 @@ int builtin_history (int argc, char ** argv){
             fprintf(stderr,"Parametro NO valido\n");
             return 1;
         }
+        if(n<=0){
+            fprintf(stderr,"Parametro NO valido\n");
+            return 1;
+        }
         print_last_N_elements(n);
     }
     return 0;

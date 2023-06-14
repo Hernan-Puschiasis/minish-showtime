@@ -7,15 +7,27 @@
 #include "minish.h"
 #include "lista.h"
 
+/*Funcion auxiliar: Libera la lista pasada como argumento.
+A su vez tambien libera a todos sus elementos incluido los contenidos.
+*/
 void free_list(struct list *list){
     struct list_elem *elem;
     while( (elem = list -> leftmost) != NULL){
         elem = list_pop_left(list);
+        free(elem->str);
         free(elem);
     }
     free(list);
 }
 
+/*
+Muestra la lista de archivos del directorio corriente en caso de no tener ningun parametro.
+Si el comando posee un parametro y se trata de un directorio (relativo o absoluto) lista los archivos del mismo.
+Si este primer parametro NO es un directorio lista los archivos que contengan esa palabra en el dir corriente.
+En caso de tener dos argumentos, el primero se trata de un directorio, si no existe se devuelve error.
+Se listan los archivos de este directorio (primer parametro) que contengan la palabra del segundo parametro.
+Devuelve el status de la operación
+*/
 int builtin_dir (int argc, char ** argv){
     if(argc>3){
         fprintf(stderr,"Comando admite como maximo dos parametros\n");
@@ -36,7 +48,6 @@ int builtin_dir (int argc, char ** argv){
         directory = opendir(getenv("PWD"));
         while((dir = readdir(directory)) != NULL){
             if(strstr(dir->d_name,argv[1])!=NULL){
-                //fprintf(stdout, "%s\n",dir->d_name);
                 list_append_alphabetically(files_names,dir->d_name);
             }
         }
@@ -47,13 +58,11 @@ int builtin_dir (int argc, char ** argv){
     }
     if(argc<3){
         while((dir = readdir(directory)) != NULL){
-            //fprintf(stdout, "%s\n",dir->d_name);
             list_append_alphabetically(files_names,dir->d_name);
         }
     }else{
         while((dir = readdir(directory)) != NULL){
             if(strstr(dir->d_name,argv[2])!=NULL){
-                //fprintf(stdout, "%s\n",dir->d_name);
                 list_append_alphabetically(files_names,dir->d_name);
             }
         }

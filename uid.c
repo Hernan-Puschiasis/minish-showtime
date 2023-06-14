@@ -6,15 +6,16 @@
 #include "minish.h"
 #include "wrappers.h"
 
+/*
+Este comando NO lleva parámetros, muestra el userid como número y también el nombre de usuario.
+Devuelve el status de la operación
+*/
 int builtin_uid (int argc, char ** argv){
     if(argc>1){
         fprintf(stderr,"Comando NO admite parametros\n");
         return 1;
     }
-    if(strcmp("uid",argv[0])!=0){
-        fprintf(stderr,"Error a la hora de ejecutar comando\n");
-        return 1;
-    }
+    if(argv[0]){}
     struct passwd *p;
     uid_t uid = getuid();
     p = getpwuid(uid);
