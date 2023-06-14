@@ -10,7 +10,7 @@
 #include "lista.h"
 
 char line[MAXLINE];
-
+void update_history(void);
 char *last_path;
 int globalstatret = 0;
 struct builtin_struct builtin_arr[] = {

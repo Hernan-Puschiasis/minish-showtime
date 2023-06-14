@@ -4,6 +4,7 @@
 #include "minish.h"
 #include "wrappers.h"
 
+void update_history(void);
 
 /*
 Termina el shell, puede no tomar parametros y termina el programa con el ultimo
