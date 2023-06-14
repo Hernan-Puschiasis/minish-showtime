@@ -4,6 +4,10 @@
 #include "minish.h"
 #include "wrappers.h"
 
+/*
+Define una variable nueva de ambiente o cambia el valor de una variable de ambiente existente.
+Recibe como parametros el nombre de la variable y el valor a asignar. Retorna el status.
+*/
 int builtin_setenv (int argc, char ** argv){
     
     if(argc != 3){

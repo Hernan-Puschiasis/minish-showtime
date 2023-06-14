@@ -4,7 +4,10 @@
 #include "minish.h"
 #include "wrappers.h"
 
-
+/*
+Elimina variables de ambiente. Recibe como parametros una lista de nombres de variables de ambiente.
+Retorna el status.
+*/
 int builtin_unsetenv (int argc, char ** argv){
     if(argc < 2){
         fprintf(stderr, "La cantidad de argumentos es incorrecta");

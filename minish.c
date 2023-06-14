@@ -36,6 +36,7 @@ int main(){
     history_list = list_create();
     last_path = getenv("PWD");
 
+    //Consigue path para abrir el file del history
     char *home = getenv("HOME");
     int home_length = strlen(home);
     int file_length = strlen(HISTORY_FILE);
@@ -48,6 +49,7 @@ int main(){
         fp = fopen(history_file_path,"a+");
     }
 
+    //Llena la estructura con las lineas del archivo history
     while(fgets(line, MAXLINE, fp) != NULL){
         list_append(history_list, line);
     }
@@ -59,6 +61,7 @@ int main(){
     uid_t uid = getuid();
     struct passwd *p = getpwuid(uid);
     
+    //Maneja la interrupcion del CTRL-C
     struct sigaction str_sigint_action;
     memset(&str_sigint_action, 0, sizeof(str_sigint_action)); // llena con 0's la struct
     str_sigint_action.sa_handler = normalInterruptHandler;
@@ -82,11 +85,6 @@ int main(){
         if(argc > 0){
             globalstatret = ejecutar(argc,argv);
         }   
-        
-        //Se libera el contenido de argv
-        //for(int i = 0; i < argc; i++){
-        //    free(argv[i]);
-        //}
     }
 
     update_history();

@@ -4,6 +4,7 @@
 #include "minish.h"
 #include "wrappers.h"
 
+//Retorna el status de la ultima operacion. No tiene parametros
 int builtin_status(int argc, char ** argv){
     if(argv[0]){}
     

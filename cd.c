@@ -51,13 +51,6 @@ int builtin_cd (int argc, char ** argv){
 
     if(is_correct){
         last_path = strdup_or_exit(tmp_path);
-        // printf("%s\n","HOLLA");
-        // strcat(tmp_path, "/");
-        // printf("%s\n","HOLLA");
-        // strcat(tmp_path, argv[1]);
-        // printf("%s\n","HOLLA");
-        //setenv("PWD", tmp_path ,1);
-        //printf("%s\n","HOLLA");
         int tmp_length = strlen(tmp_path);
         int dir_length = strlen(argv[1]);
         char *new_pwd = malloc_or_exit(tmp_length + dir_length + 2); //Hay que liberarlo
